@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 使用本文档前请先下载vue插件 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>VUE练习</title>
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="url">点我</a>
+        <!-- 
+                         v-model 核心
+         当我们修改v-model的内容时，他会把修改传递到script部分，修改
+            vue中的值，因为vue中的值变了，它会作用回我们的body部分
+            因此我们可以通过v-model实现在前端修改后方数据再作用回前端 
+         -->
+        <input type="text" v-model="message">
+        {{message}}
+        <!-- click表示点击事件，blur表示离交事件（脱离选择），focus表示聚焦事件（选择当前框） -->
+        <input type="submit" value="点我" v-on:click="handle()">
+
+        <br>
+        帅吗<input type="text" v-model="haha">
+        <span v-if="haha === '帅'">有眼光</span>
+        <span v-else>呵呵</span>
+    </div>
+
+</body>
+<script>
+    new Vue1({
+        el:"#app",
+        data:{
+            // vue的核心是插值替换，比如此处可以用通过message传值到上面的body前端页面部分
+            message:"hello vue",
+            url:"https://www.baidu.com",
+            haha:"请回答"
+        },
+        methods:{
+            handle:function(){
+            alert("我被点击了~")
+            }
+        }
+    })
+</script>
+</html>

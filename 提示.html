@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码框示例</title>
+    <style>
+        /* 设置密码框的默认样式 */
+        #password {
+            width: 200px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* 密码框被选中时变色 */
+        #password:focus {
+            border-color: #66afe9;
+            outline: none;
+            background-color: #f0f8ff;
+        }
+
+        /* 设置提示文本的样式 */
+        #passwordMessage {
+            color: red;
+            font-size: 14px;
+            display: none; /* 默认不显示提示 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 创建密码输入框 -->
+    <label for="password">请输入密码：</label>
+    <input type="password" id="password" placeholder="至少6位字符">
+
+    <!-- 提示信息 -->
+    <p id="passwordMessage">密码长度不能少于6位！</p>
+
+    <!-- JavaScript 代码区 -->
+    <script>
+        // 获取密码输入框和提示信息的元素
+        var passwordInput = document.getElementById("password");
+        var message = document.getElementById("passwordMessage");
+
+        // 当用户输入密码时，检测密码长度
+        passwordInput.addEventListener("input", function() {
+            if (passwordInput.value.length < 6) {
+                message.style.display = "block"; // 显示提示信息
+            } else {
+                message.style.display = "none"; // 隐藏提示信息
+            }
+        });
+
+        // 密码框被点击时变色（focus已经在CSS里处理了，这里仅用于说明逻辑）
+        passwordInput.addEventListener("focus", function() {
+            passwordInput.style.backgroundColor = "#f0f8ff"; // 可选：再次设置背景色
+        });
+
+        // 密码框失去焦点时恢复原色
+        passwordInput.addEventListener("blur", function() {
+            passwordInput.style.backgroundColor = ""; // 还原背景色
+        });
+    </script>
+
+</body>
+</html>

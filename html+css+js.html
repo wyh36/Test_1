@@ -1,0 +1,295 @@
+<!-- 声明文档类型为html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- 字符集为utf-8 -->
+   <meta charset="UTF-8">
+   <!-- 兼容性文件 -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+    /*
+     集中管理选择器
+     1.通过id选择修改
+     2.通过类选择修改
+    */
+      div1{
+        color: rgb(177, 177, 14);
+      }
+      #text1{
+       color:blue;
+      }
+      .text2{
+       color: green;
+      }
+   </style>
+   <!-- 把字体修改集中在一个css文件下 -->
+   <link href="../css/demo.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- 内部样式 -->
+    <span id="text1">我是字体1</span>
+    <span class="text2">我是字体2</span>
+    <!-- 内联样式 -->
+    <span style="color:red">我是字体3</span>
+    <!-- h表示标题，p表示段落，div常用于将多个块集中在一起进行管理，span可以放在其他元素内部进行修改 -->
+    <h1>这是一个标题</h1>
+    <p>这是一个段落</p>
+    <div1>
+      <p>常用于分组和布局，将多个<span style="color: red;">内容块</span>集合一起</p>
+    </div1>
+    <h1>我是标题</h1>
+    <h2>我是标题</h2>
+    <h3>我是标题</h3>
+    <h4>我是标题</h4>
+    <h5>我是标题</h5>
+    <h6>我是标题</h6>
+
+    <!-- hr表示分隔线 -->
+    <hr>
+    <b>我是粗体</b>
+    <i>我是斜体</i>
+    <u>我是下划线</u>
+    <hr>
+
+    <!-- src表示图片url，后面为高和宽 -->
+    <!-- br表示换行 -->
+    <img src="" height="" width=""><br>
+
+    <!-- audio表示音频，video表示视频  controls表示显示播放控件-->
+    <audio src="" controls></audio><br>
+    <video src="" controls></video><br>
+
+    <!-- a表示定义超链接，href存放url，target表示打开方式：_self是在空白页面打开_blank是在新窗口打开 -->
+    <a href="www.fuck.com" target="_blank">点我牛逼</a>
+
+    <!-- ol有序，ul无序，通过type改变前面的格式如：ABC或123 -->
+    <ol type="A">
+        <li>咖啡</li>
+        <li>茶</li>
+        <li>今夜</li>
+    </ol>
+    <!-- 此类为圆圈开头 -->
+    <ul type="circle">
+        <li>咖啡</li>
+        <li>茶</li>
+        <li>今夜</li>
+    </ul>
+
+    <p>
+    <!--center表示居中-->
+    <center>  
+        我是一个段落，<br>
+        我换行了。
+    </center>
+    </p>
+
+    <!-- width表格的宽 border边框的宽度 cellspacing 单元格之间的空白-->
+    <table width="50%" border="1" cellspacing="0">
+      <!-- tr定义一行 -->
+      <tr height="50">
+        <!-- th表示表头单元格 -->
+        <!-- 可在th后加上 colspan='n'规定该单元格可横跨n列，rowspan横跨n行 -->
+        <th>序号</th>
+        <th>姓名</th>
+        <th>班级</th>
+      </tr>
+      <!-- align定义内容的对齐方式 -->
+      <tr align ="center">
+        <!-- td定义具体单元格 -->
+        <td>0114</td>
+        <td>陈思睿</td>
+        <td>1</td>
+      </tr>
+      <tr align ="center">
+        <td>0411</td>
+        <td>靓女一枚</td>
+        <td>2</td>
+      </tr>
+      <tr align ="center">
+        <td>0945</td>
+        <td>卢本伟</td>
+        <td>9</td>
+      </tr>
+    </table>
+
+<!-- 
+    action:指定表单数据提交的url 
+    method:指定表单提交的方式
+       1.get(默认值)：请求参数会拼接在url后面(然而url长度有限制为4KB)
+       2.post：请求参数会在http请求协议的请求体中，请求参数无限制 
+-->
+    <form action="#" method="post">
+        <!-- 表单数据想被提交，必须指定其name属性(让系统知道你的返回值是什么) -->
+        <!-- 默认，定义一个空白框  通过id将label和空白框关联起来-->
+        <label for="username">用户名：</label>
+        <input type="text" name="username" id="username"><br>
+
+        <!-- 定义密码字段 -->
+        <label for="password">密码：</label>
+        <input type="password" name="password" id="password"><br>
+
+        <!-- 定义单选按钮 -->
+        <!-- 需要设置value，因为文本框会直接提交文本，
+        选择框默认只会提交on表示选中，需要设置value返回值让系统知道你选的是哪个 -->
+        性别：
+        <input type="radio" name="gender" value="1" id="man"> <label for="man">男</label>
+        <input type="radio" name="gender" value="2" id="woman"> <label for="woman">女</label>
+        <br>
+
+        <!-- 定义复选框 -->
+        爱好：
+        <input type="checkbox" name="hobby" value="1" id="travel"><label for="travel">旅游</label>
+        <input type="checkbox" name="hobby" value="2" id="music"><label for="music">音乐</label>
+        <input type="checkbox" name="hobby" value="3" id="fuck"><label for="fuck">打胶</label>
+        <br>
+
+        <!-- 列表选择框 默认提交option内的内容，可通过添加value修改 -->
+        城市：
+        <select name="city">
+            <option>洛杉矶</option>
+            <option value="WGH">温哥华</option>
+            <option>广州</option>
+        </select>
+        <br>
+
+        <!-- 定义文件上传按钮 -->
+        照片：
+        <input type="file" name="photo">
+        <br>
+
+        <!-- 文本域 rows表示多少行 cols表示每行多少个字-->
+        个人描述：
+        <textarea rows="5" cols="20" name="description"></textarea>
+        <br>
+
+        <!-- 定义隐藏的输入字段 -->
+        <!-- 页面看不到，但是会包含在表单中提交 -->
+        <input type="hidden" name="h_id" id="123">
+        <br>
+
+        <!-- 按钮中的文本通过value进行修改 -->
+        <!-- 定义重置按钮，重置按钮会清除表单中的所有数据 -->
+        <input type="reset" value="重置" name="重置按钮">
+        <!-- 定义提交按钮，提交按钮会把表单数据发送到服务器 -->
+        <input type="submit" value="注册" name="注册按钮">
+        <input type="button" value="其他" name="其他按钮">
+
+    </form>
+
+
+
+    <!-- javaScript部分 -->
+    <!-- script标签存放JavaScript代码，可以存放在任何地方 -->
+    <script>
+      // alert的作用是弹出一个窗口
+      alert("hello JavaScript！这是我的笔记");
+    </script>
+
+    <!-- 引入外部js文件 -->
+    <script src="../js/demo.js"></script>
+    <!-- 
+    JavaScript语法：
+    1.区分大小写
+    2.每行结尾的分号可有可无
+    -->
+    <script>
+      window.alert("ha ha");//弹窗显示(window可省略)
+      document.write("hello js");//写入html页面
+      console.log("hello lbw");//写入浏览器控制台
+
+      // var和let均可作为关键字声明变量，var声明全局变量可重复声明，let为局部变量，不允许重复声明
+      // js中的变量可以存放不同类型的值
+      var a1 = 123;
+      var a1 = 456;
+      let b1 = 111;
+      let b2 = 222;
+      //const声明只读变量，声明后常量的值不能改变
+      const c1 = 666; 
+
+
+      /*
+      5种原始类型：
+      1. number:数字(整数、小数、NaN(Not a number))
+      2. string:字符、字符串、单双引皆可
+      3. boolean:布尔 true或false
+      4. null:对象为空
+      5. undefined:当声明的变量为初始化时，该变量的默认值是undefined
+      使用typeof运算符获取数据类型
+      */
+      var String1=typeof c1;
+
+
+      //运算符大部分一致，以下着重讲解部分运算符
+      // ==：1.判断类型是否一样，若不一样进行类型转换 2.比较其值
+      // ===：全等于 1.判断类型是否一样，若不一样直接返回false 2.比较其值
+      var com1=20;
+      var com2="20";
+      //parseint 对于string：根据字符串的字面值转为数字，若字面值不是数字，转为NaN
+      //         对于Boolean：true转为1 false转为0
+      com2=parseInt(com2);
+      //alert(com1===com2);
+
+      //boolean转number：0和NaN转为false，其他均为true
+      //string转number：空字符串为false，其他均为true
+      //null转number：false
+      //undefined转number：false
+
+      //函数：形参和返回值都不需要类型定义，传参时多传了几个无所谓(会自动忽略)，不要少传
+      function FunctionName(a1,b1){}
+      function add(a,b){
+        return a+b;
+      }
+      let result = add(1,2)
+
+      //js中数组相当于集合，可变长变类型（可多种类型混合）
+      var arr = new Array(1,2,3)
+      var arr = [1,2,3]
+
+      var chose1=arr[2]
+      arr[10]=10//会自动延长数组
+
+      //数组添加元素：push
+      var arr2=[1,2,3];
+      arr2.push(4);
+      //删除：splice 从m开始删，删n个元素
+      arr2.splice(m,n);
+
+      //定义字符串
+      var str1=new String("abc")
+      var str2=" abc "
+      str2=str2.trim()//去除字符串前后两端的空白（常用）
+
+      //类
+      var person ={
+        name:"黄梓晋",
+        age:21,
+        eat:function(){
+          alert("干饭")
+        }
+      };
+
+      person.eat()
+
+
+      //window窗口对象，window.可省略，严谨格式为window.alert()
+      alert();
+      confirm("确认删除？"); //弹出一个包含确认/删除按钮的选择框，常用于防误操作
+      setInterval(function(){},n); //在n毫秒后调用函数或计算表达式，循环执行
+      setTimeout(function(){},n); //在n毫秒后调用函数或计算表达式，只执行一次
+
+      //DOM 帮助js改变html页面
+      /*
+      Element：元素对象         使用document对象获取
+      1.getElementById:根据id属性值获取，返回一个Element对象数组
+      2.getElementByTagName:根据标签名称获取，返回一个Element对象数组
+      3.getElementByName:根据name属性值获取，返回一个Element对象数组
+      4.getElementByClassName:根据class属性值获取，返回一个Element对象数组
+      */
+      var img =document.getElementById()
+      //document.上述类 可以绑定很多方法
+    </script>
+</body>
+
+</html>

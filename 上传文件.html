@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传文件</title>
+</head>
+<body>
+    <h2>请选择一个文件</h2>
+    <!-- 
+    action="/upload"：指定表单提交的目标 URL
+    method="post"：使用 POST 方法提交数据
+    enctype="multipart/form-data"：指定表单的编码格式，以上传较大的文件
+    -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Choose a file:</label>
+        <input type="file" id="file" name="file">
+        <br><br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
